@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cc8ykqf6yrrpb"]
+
+[ext_resource type="Texture2D" uid="uid://bbw2kh6mo5y03" path="res://Alchemical_air_symbol_(fixed_width).svg" id="1_13t16"]
+[ext_resource type="Script" path="res://characters/alchemist/cards/air.gd" id="2_ych5u"]
+
+[resource]
+script = ExtResource("2_ych5u")
+id = "air"
+type = 0
+target = 1
+mana_cost = 0
+icon = ExtResource("1_13t16")
+tooltip_text = ""

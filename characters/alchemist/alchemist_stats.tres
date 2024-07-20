@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://dp2aefo2bl6s7"]
+
+[ext_resource type="Texture2D" uid="uid://nxnxpd0yljag" path="res://icon.svg" id="1_5mqpi"]
+[ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="1_is6ql"]
+[ext_resource type="Resource" uid="uid://cnd5ko5lcxq43" path="res://characters/alchemist/starting_deck.tres" id="3_lo3w0"]
+
+[resource]
+script = ExtResource("1_is6ql")
+starting_deck = ExtResource("3_lo3w0")
+cards_per_turn = 3
+max_mana = 1
+max_health = 10
+art = ExtResource("1_5mqpi")

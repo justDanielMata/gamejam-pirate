@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=6 format=3 uid="uid://cnd5ko5lcxq43"]
+
+[ext_resource type="Script" path="res://custom_resources/card_pile.gd" id="1_3a18a"]
+[ext_resource type="Resource" uid="uid://cc8ykqf6yrrpb" path="res://characters/alchemist/cards/air.tres" id="1_w6vm2"]
+[ext_resource type="Resource" uid="uid://b3qjrapeqf7k4" path="res://characters/alchemist/cards/earth.tres" id="2_njg43"]
+[ext_resource type="Resource" uid="uid://oovwe8tdu6r2" path="res://characters/alchemist/cards/fire.tres" id="3_g63vj"]
+[ext_resource type="Resource" uid="uid://bfbs8p8ufgy8t" path="res://characters/alchemist/cards/water.tres" id="4_qoo8d"]
+
+[resource]
+script = ExtResource("1_3a18a")
+cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("1_w6vm2"), ExtResource("1_w6vm2"), ExtResource("2_njg43"), ExtResource("2_njg43"), ExtResource("3_g63vj"), ExtResource("3_g63vj"), ExtResource("4_qoo8d"), ExtResource("4_qoo8d")])

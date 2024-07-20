@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp1y8lr4w38cb"]
+
+[ext_resource type="Texture2D" uid="uid://dxwsjeeg41fbu" path="res://scenes/panel_beige.png" id="1_nplct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rvvn"]
+size = Vector2(12.5744, 2.3912)
+
+[node name="Tile" type="Area2D"]
+collision_layer = 4
+collision_mask = 25
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nplct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1.90735e-06)
+scale = Vector2(8.19125, 40.9836)
+shape = SubResource("RectangleShape2D_1rvvn")
