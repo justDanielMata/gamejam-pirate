@@ -15,7 +15,7 @@ func draw_card() -> Card:
 func next_card() -> Card:
 	return cards[0]
 
-func add_card(card: Card) -> void:
+func addd_card(card: Card) -> void:
 	cards.append(card)
 	card_pile_size_changed.emit(cards.size())
 

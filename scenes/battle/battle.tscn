@@ -1,20 +1,24 @@
-[gd_scene load_steps=14 format=3 uid="uid://b60yo8v1r8o6o"]
+[gd_scene load_steps=16 format=3 uid="uid://b60yo8v1r8o6o"]
 
 [ext_resource type="PackedScene" uid="uid://dv83gv82rm8a8" path="res://scenes/card_ui/card_ui.tscn" id="1_8s2li"]
 [ext_resource type="Script" path="res://scenes/battle/ui/hand.gd" id="1_bcmaq"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_c0q2n"]
-[ext_resource type="Resource" uid="uid://cc8ykqf6yrrpb" path="res://characters/alchemist/cards/air.tres" id="3_1pc4m"]
 [ext_resource type="PackedScene" uid="uid://w8xq50tctuhn" path="res://scenes/card_target_selector.tscn" id="4_otoe6"]
 [ext_resource type="Resource" uid="uid://b3qjrapeqf7k4" path="res://characters/alchemist/cards/earth.tres" id="4_pxjkf"]
 [ext_resource type="Resource" uid="uid://dp2aefo2bl6s7" path="res://characters/alchemist/alchemist_stats.tres" id="5_ng3uk"]
 [ext_resource type="Resource" uid="uid://oovwe8tdu6r2" path="res://characters/alchemist/cards/fire.tres" id="5_plhxf"]
 [ext_resource type="Resource" uid="uid://bfbs8p8ufgy8t" path="res://characters/alchemist/cards/water.tres" id="6_vriw1"]
 [ext_resource type="PackedScene" uid="uid://de4gx46loji3y" path="res://scenes/player.tscn" id="8_2m8xi"]
+[ext_resource type="Resource" uid="uid://4kb5h3v0y7ty" path="res://characters/alchemist/cards/steam.tres" id="8_8mdgg"]
 [ext_resource type="PackedScene" uid="uid://bma656kcvit1" path="res://scenes/card_ui/mana_ui.tscn" id="10_2uk4u"]
 [ext_resource type="PackedScene" uid="uid://t0ovh0pos4jg" path="res://scenes/enemy.tscn" id="10_bktfd"]
+[ext_resource type="StyleBox" uid="uid://cgq5dgf4b552" path="res://scenes/card_ui/card_base_stylebox.tres" id="13_bcedh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0smi"]
 size = Vector2(1152, 432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msict"]
+size = Vector2(178, 161)
 
 [node name="Battle" type="Node2D"]
 
@@ -68,7 +72,7 @@ script = ExtResource("1_bcmaq")
 
 [node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("1_8s2li")]
 layout_mode = 2
-card = ExtResource("3_1pc4m")
+card = ExtResource("8_8mdgg")
 char_stats = ExtResource("5_ng3uk")
 
 [node name="CardUI2" parent="BattleUI/Hand" instance=ExtResource("1_8s2li")]
@@ -89,3 +93,20 @@ char_stats = ExtResource("5_ng3uk")
 [node name="Enemy" parent="." instance=ExtResource("10_bktfd")]
 position = Vector2(404, 98)
 scale = Vector2(0.620658, 0.615403)
+
+[node name="FusionArea" type="Area2D" parent="."]
+position = Vector2(1006, 540)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FusionArea"]
+position = Vector2(-19, 8.5)
+shape = SubResource("RectangleShape2D_msict")
+
+[node name="Panel" type="Panel" parent="FusionArea"]
+offset_left = -110.0
+offset_top = -74.0
+offset_right = -10.0
+offset_bottom = 26.0
+scale = Vector2(1.81539, 1.63152)
+theme_override_styles/panel = ExtResource("13_bcedh")
+metadata/_edit_use_anchors_ = true

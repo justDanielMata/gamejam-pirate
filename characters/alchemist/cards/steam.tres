@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://4kb5h3v0y7ty"]
+
+[ext_resource type="Script" path="res://characters/alchemist/cards/steam.gd" id="1_t7qne"]
+
+[resource]
+script = ExtResource("1_t7qne")
+id = "steam"
+type = 1
+target = 0
+mana_cost = 0
+tooltip_text = "Denies the next damage instance"

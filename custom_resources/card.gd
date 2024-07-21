@@ -19,9 +19,8 @@ func is_targeted() -> bool:
 func _get_targets(targets: Array[Node]) -> Array[Node]:
 	if not targets:
 		return []
-	
 	var tree := targets[0].get_tree()
-	
+
 	match target:
 		Target.SELF:
 			return tree.get_nodes_in_group("player")

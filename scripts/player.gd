@@ -10,6 +10,7 @@ var inputs = {"right": Vector2.RIGHT,
 
 var animation_speed = 8
 var moving = false
+var invulnerable = false
 
 @onready var ray = $RayCast2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -36,6 +37,9 @@ func update_stats() -> void:
 	stats_ui.update_stats(stats)
 
 func take_damage(damage: int) -> void:
+	if invulnerable:
+		invulnerable = false
+		return 
 	if stats.health <= 0:
 		return
 	
