@@ -11,6 +11,7 @@ var block: int : set = set_block
 func set_health(value: int) -> void:
 	health = clampi(value, 0, max_health)
 	stats_changed.emit()
+	print("emitted")
 
 func set_block(value: int) -> void:
 	block = clampi(value, 0, 999)

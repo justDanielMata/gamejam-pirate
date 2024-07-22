@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://scripts/Events.gd"
+Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg")
 
 [input]
 

@@ -18,6 +18,7 @@ var invulnerable = false
 
 func set_character_stats(value: CharacterStats) -> void:
 	stats = value
+	
 	if not stats.stats_changed.is_connected(update_stats):
 		stats.stats_changed.connect(update_stats)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b60yo8v1r8o6o"]
+[gd_scene load_steps=17 format=3 uid="uid://b60yo8v1r8o6o"]
 
 [ext_resource type="Script" path="res://scenes/battle/ui/hand.gd" id="1_bcmaq"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_c0q2n"]
@@ -6,10 +6,12 @@
 [ext_resource type="Script" path="res://scenes/battle/ui/battle_ui.gd" id="4_5bdha"]
 [ext_resource type="PackedScene" uid="uid://w8xq50tctuhn" path="res://scenes/card_target_selector.tscn" id="4_otoe6"]
 [ext_resource type="Resource" uid="uid://dp2aefo2bl6s7" path="res://characters/alchemist/alchemist_stats.tres" id="5_ng3uk"]
+[ext_resource type="Script" path="res://scenes/enemy/enemy_handler.gd" id="6_37qis"]
 [ext_resource type="Script" path="res://scenes/player_handler.gd" id="6_edq48"]
+[ext_resource type="PackedScene" uid="uid://t0ovh0pos4jg" path="res://scenes/enemy/enemy.tscn" id="7_tws2o"]
 [ext_resource type="PackedScene" uid="uid://de4gx46loji3y" path="res://scenes/player.tscn" id="8_2m8xi"]
+[ext_resource type="Resource" uid="uid://jhieql4wg67d" path="res://enemies/melee_shadow/melee_shadow.tres" id="8_ym10o"]
 [ext_resource type="PackedScene" uid="uid://bma656kcvit1" path="res://scenes/card_ui/mana_ui.tscn" id="10_2uk4u"]
-[ext_resource type="PackedScene" uid="uid://t0ovh0pos4jg" path="res://scenes/enemy.tscn" id="10_bktfd"]
 [ext_resource type="Theme" uid="uid://1k82t3bn6n0n" path="res://main.tres" id="10_y1sqd"]
 [ext_resource type="StyleBox" uid="uid://cgq5dgf4b552" path="res://scenes/card_ui/card_base_stylebox.tres" id="13_bcedh"]
 
@@ -47,6 +49,13 @@ process_mode = 3
 position = Vector2(298, 102)
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("4_otoe6")]
+
+[node name="EnemyHandler" type="Node2D" parent="."]
+script = ExtResource("6_37qis")
+
+[node name="Enemy" parent="EnemyHandler" instance=ExtResource("7_tws2o")]
+position = Vector2(447, 103)
+stats = ExtResource("8_ym10o")
 
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
 script = ExtResource("6_edq48")
@@ -89,10 +98,6 @@ grow_vertical = 0
 theme = ExtResource("10_y1sqd")
 text = "End Turn
 "
-
-[node name="Enemy" parent="." instance=ExtResource("10_bktfd")]
-position = Vector2(404, 98)
-scale = Vector2(0.620658, 0.615403)
 
 [node name="FusionArea" type="Area2D" parent="."]
 position = Vector2(1006, 540)

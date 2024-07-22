@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://c8b0dxpy4h2um"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://jhieql4wg67d"]
 
-[ext_resource type="Script" path="res://custom_resources/stats.gd" id="1_24oju"]
+[ext_resource type="PackedScene" uid="uid://0xlc8bgq80e6" path="res://enemies/melee_shadow/melee_shadow_ai.tscn" id="1_fjtpa"]
 [ext_resource type="Texture2D" uid="uid://nxnxpd0yljag" path="res://icon.svg" id="1_rsbmc"]
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="3_nkqid"]
 
 [resource]
-script = ExtResource("1_24oju")
-max_health = 6
+script = ExtResource("3_nkqid")
+ai = ExtResource("1_fjtpa")
+max_health = 10
 art = ExtResource("1_rsbmc")

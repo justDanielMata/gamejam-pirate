@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://0xlc8bgq80e6"]
+
+[ext_resource type="Script" path="res://scenes/enemy_action_picker.gd" id="1_31td5"]
+[ext_resource type="Script" path="res://enemies/melee_shadow/melee_attack_action.gd" id="2_2nbwc"]
+[ext_resource type="Script" path="res://enemies/melee_shadow/melee_block_action.gd" id="3_cwc5j"]
+[ext_resource type="Script" path="res://enemies/melee_shadow/dash_attack_action.gd" id="4_aoseg"]
+
+[node name="MeleeShadowAi" type="Node"]
+script = ExtResource("1_31td5")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_2nbwc")
+type = 1
+chance_weight = 1.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("3_cwc5j")
+type = 1
+chance_weight = 1.0
+
+[node name="DashAttackAction" type="Node" parent="."]
+script = ExtResource("4_aoseg")
