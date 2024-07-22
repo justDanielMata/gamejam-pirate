@@ -10,9 +10,13 @@ signal reparent_requested(which_card_ui: CardUI)
 @onready var drop_point_detector: Area2D = $DropPointDetector
 @onready var targets: Array[Node] = []
 @export var card: Card : set = _set_card
-@onready var original_index := self.get_index()
-
 @export var char_stats: CharacterStats  : set = _set_char_stats
+
+var original_index := 0
+var parent: Control
+var tween: Tween
+var playable := true : set = _set_playable
+var disabled := false
 
 func play() -> void:
 	if not card:
@@ -29,10 +33,6 @@ func _set_card(value: Card) -> void:
 	icon.texture = card.icon
 	card_name.text = str(card.id)
 
-var parent: Control
-var tween: Tween
-var playable := true : set = _set_playable
-var disabled := false
 
 func _ready() -> void:
 	Events.card_aim_ended.connect(_on_card_drag_or_aiming_ended)

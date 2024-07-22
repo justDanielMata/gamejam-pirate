@@ -7,11 +7,15 @@ signal stats_changed
 
 var health: int : set = set_health
 var block: int : set = set_block
+var moves: int : set = set_move
+
+func set_move(value: int) -> void:
+	moves = clampi(value, 0, 2)
+	stats_changed.emit()
 
 func set_health(value: int) -> void:
 	health = clampi(value, 0, max_health)
-	stats_changed.emit()
-	print("emitted")
+	stats_changed.emit()	
 
 func set_block(value: int) -> void:
 	block = clampi(value, 0, 999)

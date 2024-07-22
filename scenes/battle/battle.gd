@@ -13,6 +13,7 @@ func _ready() -> void:
 	
 	Events.enemy_turn_ended.connect(_on_enemy_turn_ended)
 	Events.player_turn_ended.connect(_on_player_turn_ended)
+	Events.player_died.connect(_on_player_died)
 	
 	start_battle(new_stats)
 
@@ -25,3 +26,11 @@ func _on_player_turn_ended() -> void:
 func _on_enemy_turn_ended() -> void:
 	player_handler.start_turn()
 	enemy_handler.reset_enemy_actions()
+
+
+func _on_enemy_handler_child_order_changed() -> void:
+	if enemy_handler.get_child_count() == 0:
+		print("Victory!")
+
+func _on_player_died() -> void:
+	print("Game Over!")

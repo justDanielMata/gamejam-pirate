@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6y7q7ousgl5u"]
+
+[ext_resource type="Script" path="res://scenes/enemy_action_picker.gd" id="1_sgved"]
+[ext_resource type="Script" path="res://enemies/ranged_shadow/RangedAttackAction.gd" id="2_dhv3h"]
+[ext_resource type="Texture2D" uid="uid://cnq54td5cah65" path="res://art/Diamond-Sword-PNG-File.png" id="3_eqjvi"]
+[ext_resource type="Script" path="res://custom_resources/intent.gd" id="4_q0s7m"]
+
+[sub_resource type="Resource" id="Resource_1colc"]
+script = ExtResource("4_q0s7m")
+number = "2"
+icon = ExtResource("3_eqjvi")
+
+[node name="RangedShadowAI" type="Node"]
+script = ExtResource("1_sgved")
+
+[node name="RangedAttackAction" type="Node" parent="."]
+script = ExtResource("2_dhv3h")
+intent = SubResource("Resource_1colc")
+type = 1
+chance_weight = 1.0

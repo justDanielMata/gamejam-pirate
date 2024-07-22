@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dti1ase3w1skm"]
+
+[ext_resource type="Texture2D" uid="uid://dwtncdkjix5ak" path="res://art/lighting.jpg" id="1_o3wwh"]
+
+[node name="Bullet" type="Sprite2D"]
+position = Vector2(57, 4)
+scale = Vector2(0.108084, 0.108084)
+texture = ExtResource("1_o3wwh")

@@ -1,20 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://0xlc8bgq80e6"]
+[gd_scene load_steps=10 format=3 uid="uid://0xlc8bgq80e6"]
 
 [ext_resource type="Script" path="res://scenes/enemy_action_picker.gd" id="1_31td5"]
 [ext_resource type="Script" path="res://enemies/melee_shadow/melee_attack_action.gd" id="2_2nbwc"]
 [ext_resource type="Script" path="res://enemies/melee_shadow/melee_block_action.gd" id="3_cwc5j"]
+[ext_resource type="Texture2D" uid="uid://cnq54td5cah65" path="res://art/Diamond-Sword-PNG-File.png" id="3_gmvii"]
 [ext_resource type="Script" path="res://enemies/melee_shadow/dash_attack_action.gd" id="4_aoseg"]
+[ext_resource type="Script" path="res://custom_resources/intent.gd" id="4_h8c6s"]
+[ext_resource type="Texture2D" uid="uid://c62bvgh27f5av" path="res://art/shield.png" id="6_mf84b"]
+
+[sub_resource type="Resource" id="Resource_fhxqa"]
+script = ExtResource("4_h8c6s")
+number = "2"
+icon = ExtResource("3_gmvii")
+
+[sub_resource type="Resource" id="Resource_6rjk1"]
+script = ExtResource("4_h8c6s")
+number = ""
+icon = ExtResource("6_mf84b")
 
 [node name="MeleeShadowAi" type="Node"]
 script = ExtResource("1_31td5")
 
 [node name="AttackAction" type="Node" parent="."]
 script = ExtResource("2_2nbwc")
+intent = SubResource("Resource_fhxqa")
 type = 1
 chance_weight = 1.0
 
 [node name="BlockAction" type="Node" parent="."]
 script = ExtResource("3_cwc5j")
+intent = SubResource("Resource_6rjk1")
 type = 1
 chance_weight = 1.0
 

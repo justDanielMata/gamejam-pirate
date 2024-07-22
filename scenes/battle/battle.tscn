@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b60yo8v1r8o6o"]
+[gd_scene load_steps=18 format=3 uid="uid://b60yo8v1r8o6o"]
 
 [ext_resource type="Script" path="res://scenes/battle/ui/hand.gd" id="1_bcmaq"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_c0q2n"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://t0ovh0pos4jg" path="res://scenes/enemy/enemy.tscn" id="7_tws2o"]
 [ext_resource type="PackedScene" uid="uid://de4gx46loji3y" path="res://scenes/player.tscn" id="8_2m8xi"]
 [ext_resource type="Resource" uid="uid://jhieql4wg67d" path="res://enemies/melee_shadow/melee_shadow.tres" id="8_ym10o"]
+[ext_resource type="Resource" uid="uid://cexeetta0mjrg" path="res://enemies/ranged_shadow/ranged_shadow.tres" id="9_laixy"]
 [ext_resource type="PackedScene" uid="uid://bma656kcvit1" path="res://scenes/card_ui/mana_ui.tscn" id="10_2uk4u"]
 [ext_resource type="Theme" uid="uid://1k82t3bn6n0n" path="res://main.tres" id="10_y1sqd"]
 [ext_resource type="StyleBox" uid="uid://cgq5dgf4b552" path="res://scenes/card_ui/card_base_stylebox.tres" id="13_bcedh"]
@@ -53,9 +54,13 @@ position = Vector2(298, 102)
 [node name="EnemyHandler" type="Node2D" parent="."]
 script = ExtResource("6_37qis")
 
-[node name="Enemy" parent="EnemyHandler" instance=ExtResource("7_tws2o")]
+[node name="Melee" parent="EnemyHandler" instance=ExtResource("7_tws2o")]
 position = Vector2(447, 103)
 stats = ExtResource("8_ym10o")
+
+[node name="ranged" parent="EnemyHandler" instance=ExtResource("7_tws2o")]
+position = Vector2(645, 228)
+stats = ExtResource("9_laixy")
 
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
 script = ExtResource("6_edq48")
@@ -115,3 +120,5 @@ offset_bottom = 26.0
 scale = Vector2(1.81539, 1.63152)
 theme_override_styles/panel = ExtResource("13_bcedh")
 metadata/_edit_use_anchors_ = true
+
+[connection signal="child_order_changed" from="EnemyHandler" to="." method="_on_enemy_handler_child_order_changed"]
