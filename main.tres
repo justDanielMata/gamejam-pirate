@@ -4,4 +4,9 @@
 
 [resource]
 default_font_size = 18
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = ExtResource("1_m34ig")
+Button/styles/pressed = null
 Panel/styles/panel = ExtResource("1_m34ig")

@@ -8,7 +8,7 @@ func enter() -> void:
 	var ui_layer := get_tree().get_first_node_in_group("ui_layer_group")
 	if ui_layer:
 		card_ui.reparent(ui_layer)
-
+	Events.card_dragging_started.emit()
 	minimum_drag_time_elapsed = false
 	var treshold_timer := get_tree().create_timer(DRAG_MINIMUM_TRESHOLD, false)
 	treshold_timer.timeout.connect(func(): minimum_drag_time_elapsed = true)
@@ -31,3 +31,6 @@ func on_input(event: InputEvent) -> void:
 	elif minimum_drag_time_elapsed and confirm:
 		get_viewport().set_input_as_handled()
 		transition_requested.emit(self, CardState.State.RELEASED)
+
+func exit() -> void:
+	Events.card_dragging_ended.emit()

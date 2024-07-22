@@ -10,8 +10,9 @@ signal reparent_requested(which_card_ui: CardUI)
 @onready var drop_point_detector: Area2D = $DropPointDetector
 @onready var targets: Array[Node] = []
 @export var card: Card : set = _set_card
+@onready var original_index := self.get_index()
 
-@export var char_stats: CharacterStats 
+@export var char_stats: CharacterStats  : set = _set_char_stats
 
 func play() -> void:
 	if not card:
@@ -30,10 +31,42 @@ func _set_card(value: Card) -> void:
 
 var parent: Control
 var tween: Tween
+var playable := true : set = _set_playable
+var disabled := false
 
 func _ready() -> void:
+	Events.card_aim_ended.connect(_on_card_drag_or_aiming_ended)
+	Events.card_aim_started.connect(_on_card_drag_or_aiming_started)
+	Events.card_dragging_ended.connect(_on_card_drag_or_aiming_ended)
+	Events.card_dragging_started.connect(_on_card_drag_or_aiming_started)
 	card_state_machine.init(self)
 	
+func _set_playable(value: bool) -> void:
+	playable = value
+	if not playable:
+		cost.add_theme_color_override("font_color", Color.RED)
+		icon.modulate = Color(1,1,1,0.5)
+	else:
+		cost.remove_theme_color_override("font_color")
+		icon.modulate = Color(1,1,1,1)
+		
+func _set_char_stats(value: CharacterStats) -> void:
+	char_stats = value
+	char_stats.stats_changed.connect(_on_char_stats_changed)
+
+func _on_card_drag_or_aiming_started(used_card: CardUI) -> void:
+	if used_card == self:
+		return
+	
+	disabled = true
+
+func _on_card_drag_or_aiming_ended(_card: CardUI) -> void:
+	disabled = false
+	self.playable = char_stats.can_play_card(card)
+
+func _on_char_stats_changed() -> void:
+	self.playable = char_stats.can_play_card(card)
+
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
 

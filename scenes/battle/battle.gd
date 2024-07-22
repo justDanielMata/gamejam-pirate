@@ -1,18 +1,19 @@
-extends Node2D
+class_name Battle extends Node2D
 
-
-const TILE = preload("res://scenes/tile.tscn")
-var gridSize = Vector2(4,4)
-var cellSize = 120
-var Dic = {}
+@export var char_stats: CharacterStats
+@onready var battle_ui: BattleUI = $BattleUI as BattleUI
+@onready var player_handler: PlayerHandler = $PlayerHandler as PlayerHandler
+@onready var player = $Player
 
 func _ready() -> void:
+	var new_stats: CharacterStats = char_stats.create_instance()
+	battle_ui.char_stats = new_stats
+	player.stats = new_stats
 	
-	for x in gridSize.x:
-		for y in gridSize.y:
-			Dic[str(Vector2(x,y))] = {
-			}
-			var playerNode = TILE.instantiate()
-			add_child(playerNode)
-			playerNode.position = Vector2(x,y) * cellSize
-			
+	Events.player_turn_ended.connect(player_handler.end_turn)
+	
+	start_battle(new_stats)
+
+func start_battle(stats: CharacterStats) -> void:
+	player_handler.start_battle(stats)
+	
