@@ -47,7 +47,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.133333)
 
 [node name="Player" parent="." instance=ExtResource("8_2m8xi")]
 process_mode = 3
-position = Vector2(298, 102)
+position = Vector2(503, 105)
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("4_otoe6")]
 
@@ -55,11 +55,11 @@ position = Vector2(298, 102)
 script = ExtResource("6_37qis")
 
 [node name="Melee" parent="EnemyHandler" instance=ExtResource("7_tws2o")]
-position = Vector2(447, 103)
+position = Vector2(298, 100)
 stats = ExtResource("8_ym10o")
 
 [node name="ranged" parent="EnemyHandler" instance=ExtResource("7_tws2o")]
-position = Vector2(645, 228)
+position = Vector2(401, 300)
 stats = ExtResource("9_laixy")
 
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]

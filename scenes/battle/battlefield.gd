@@ -7,14 +7,11 @@ var cellSize = 110
 var Dic = {}
 
 func _ready() -> void:
-	
 	for x in gridSize.x:
 		for y in gridSize.y:
 			Dic[str(Vector2(x,y))] = {
-				"position": {
-					"coordinates": "%s, %s" % [x,y],
-					"contents": []
-				}
+				"coordinates": "%s, %s" % [x,y],
+				"contents": []
 			}
 			var playerNode = TILE.instantiate()
 			add_child(playerNode)

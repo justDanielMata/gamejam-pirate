@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://t0ovh0pos4jg"]
+[gd_scene load_steps=6 format=3 uid="uid://b2yufvsbc53ea"]
 
 [ext_resource type="Texture2D" uid="uid://nxnxpd0yljag" path="res://icon.svg" id="1_ftsb8"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_gq7lq"]
-[ext_resource type="Resource" uid="uid://c8b0dxpy4h2um" path="res://enemies/melee_shadow/melee_shadow.tres" id="2_3h7ra"]
+[ext_resource type="Resource" uid="uid://jhieql4wg67d" path="res://enemies/melee_shadow/melee_shadow.tres" id="2_3h7ra"]
 [ext_resource type="PackedScene" uid="uid://d3gu5c13murwg" path="res://scenes/battle/ui/stats_ui.tscn" id="2_osmq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep3ok"]
