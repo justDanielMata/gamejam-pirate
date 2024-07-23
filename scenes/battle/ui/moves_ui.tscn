@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnt6c1pvmogtg"]
+
+[ext_resource type="Theme" uid="uid://1k82t3bn6n0n" path="res://main.tres" id="1_8jcml"]
+[ext_resource type="Script" path="res://moves_ui.gd" id="2_uqrod"]
+
+[node name="MovesUI" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_8jcml")
+script = ExtResource("2_uqrod")
+
+[node name="MovesLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2/2"
+horizontal_alignment = 1
+vertical_alignment = 1

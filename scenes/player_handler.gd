@@ -17,6 +17,7 @@ func start_battle(char_stats: CharacterStats) -> void:
 
 func start_turn() -> void:
 	character.reset_mana()
+	character.reset_moves()
 	var cards_to_draw = character.cards_per_turn - hand.children()
 	if cards_to_draw == 0:
 		Events.player_hand_drawn.emit()

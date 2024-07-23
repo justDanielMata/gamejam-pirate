@@ -11,10 +11,12 @@ var inputs = {"right": Vector2.RIGHT,
 var animation_speed = 8
 var moving = false
 var invulnerable = false
+var matrixPosition: Vector2
 
 @onready var ray = $RayCast2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
+
 
 func set_character_stats(value: CharacterStats) -> void:
 	stats = value
@@ -50,7 +52,7 @@ func take_damage(damage: int) -> void:
 		queue_free()
 	
 
-func _ready():
+func _process(delta):
 	pass
 	#position = position.snapped(Vector2.ONE * tile_size)
 	#position += Vector2.ONE * tile_size/2
@@ -66,6 +68,9 @@ func move(dir):
 	ray.target_position = inputs[dir] * tile_size
 	ray.force_raycast_update()
 	if !ray.is_colliding():
+		if stats.moves_per_turn <= 0:
+			return
+		stats.moves_per_turn -= 1
 		#position += inputs[dir] * tile_size
 		var tween = create_tween()
 		tween.tween_property(self, "position",
@@ -73,3 +78,4 @@ func move(dir):
 		moving = true
 		await tween.finished
 		moving = false
+		Events.player_moved.emit()

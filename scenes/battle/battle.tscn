@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://b60yo8v1r8o6o"]
+[gd_scene load_steps=24 format=3 uid="uid://b60yo8v1r8o6o"]
 
 [ext_resource type="Script" path="res://scenes/battle/ui/hand.gd" id="1_bcmaq"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_c0q2n"]
-[ext_resource type="Script" path="res://scenes/battle/battlefield.gd" id="2_k55r1"]
+[ext_resource type="Texture2D" uid="uid://dxwsjeeg41fbu" path="res://scenes/panel_beige.png" id="3_05hto"]
 [ext_resource type="Script" path="res://scenes/battle/ui/battle_ui.gd" id="4_5bdha"]
+[ext_resource type="Script" path="res://scenes/battle/tile_setup.gd" id="4_kfdpm"]
 [ext_resource type="PackedScene" uid="uid://w8xq50tctuhn" path="res://scenes/card_target_selector.tscn" id="4_otoe6"]
 [ext_resource type="Resource" uid="uid://dp2aefo2bl6s7" path="res://characters/alchemist/alchemist_stats.tres" id="5_ng3uk"]
 [ext_resource type="Script" path="res://scenes/enemy/enemy_handler.gd" id="6_37qis"]
@@ -14,7 +15,23 @@
 [ext_resource type="Resource" uid="uid://cexeetta0mjrg" path="res://enemies/ranged_shadow/ranged_shadow.tres" id="9_laixy"]
 [ext_resource type="PackedScene" uid="uid://bma656kcvit1" path="res://scenes/card_ui/mana_ui.tscn" id="10_2uk4u"]
 [ext_resource type="Theme" uid="uid://1k82t3bn6n0n" path="res://main.tres" id="10_y1sqd"]
+[ext_resource type="Script" path="res://scenes/battle/position_handler.gd" id="12_i4a5n"]
 [ext_resource type="StyleBox" uid="uid://cgq5dgf4b552" path="res://scenes/card_ui/card_base_stylebox.tres" id="13_bcedh"]
+[ext_resource type="PackedScene" uid="uid://cnt6c1pvmogtg" path="res://scenes/battle/ui/moves_ui.tscn" id="17_1lehw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vfi62"]
+texture = ExtResource("3_05hto")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+
+[sub_resource type="TileSet" id="TileSet_cnq2t"]
+tile_size = Vector2i(100, 100)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 25
+sources/3 = SubResource("TileSetAtlasSource_vfi62")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0smi"]
 size = Vector2(1152, 432)
@@ -22,9 +39,18 @@ size = Vector2(1152, 432)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msict"]
 size = Vector2(178, 161)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q4oa"]
+size = Vector2(400.927, 20)
+
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_c0q2n")
 char_stats = ExtResource("5_ng3uk")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(251.071, 50.0253)
+tile_set = SubResource("TileSet_cnq2t")
+format = 2
+script = ExtResource("4_kfdpm")
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 40.0
@@ -35,7 +61,6 @@ metadata/_edit_lock_ = true
 
 [node name="BattleField" type="Node2D" parent="."]
 position = Vector2(300, 100)
-script = ExtResource("2_k55r1")
 
 [node name="CardDropArea" type="Area2D" parent="."]
 collision_layer = 2
@@ -65,6 +90,9 @@ stats = ExtResource("9_laixy")
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
 script = ExtResource("6_edq48")
 hand = NodePath("../BattleUI/Hand")
+
+[node name="PisitionHandler" type="Node" parent="."]
+script = ExtResource("12_i4a5n")
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer_group"]]
 script = ExtResource("4_5bdha")
@@ -104,6 +132,12 @@ theme = ExtResource("10_y1sqd")
 text = "End Turn
 "
 
+[node name="MovesUI" parent="BattleUI" instance=ExtResource("17_1lehw")]
+offset_left = 81.8949
+offset_top = 553.105
+offset_right = 121.895
+offset_bottom = 593.105
+
 [node name="FusionArea" type="Area2D" parent="."]
 position = Vector2(1006, 540)
 collision_layer = 2
@@ -120,5 +154,12 @@ offset_bottom = 26.0
 scale = Vector2(1.81539, 1.63152)
 theme_override_styles/panel = ExtResource("13_bcedh")
 metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(258.284, 27.7183)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(195.503, 10.0794)
+shape = SubResource("RectangleShape2D_4q4oa")
 
 [connection signal="child_order_changed" from="EnemyHandler" to="." method="_on_enemy_handler_child_order_changed"]

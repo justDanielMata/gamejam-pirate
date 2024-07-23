@@ -7,6 +7,7 @@ class_name Enemy extends Area2D
 @onready var intent_ui: IntentUI = $IntentUI as IntentUI
 
 var enemy_action_picker: EnemyActionPicker
+var matrixPosition: Vector2
 var current_action: EnemyAction : set = set_current_action
 
 
