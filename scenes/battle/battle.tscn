@@ -52,6 +52,9 @@ tile_set = SubResource("TileSet_cnq2t")
 format = 2
 script = ExtResource("4_kfdpm")
 
+[node name="Line2D" type="Line2D" parent="TileMap"]
+position = Vector2(255.217, 53.2123)
+
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
@@ -84,7 +87,7 @@ position = Vector2(298, 100)
 stats = ExtResource("8_ym10o")
 
 [node name="ranged" parent="EnemyHandler" instance=ExtResource("7_tws2o")]
-position = Vector2(401, 300)
+position = Vector2(402.414, 102.01)
 stats = ExtResource("9_laixy")
 
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
@@ -155,10 +158,33 @@ scale = Vector2(1.81539, 1.63152)
 theme_override_styles/panel = ExtResource("13_bcedh")
 metadata/_edit_use_anchors_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="TopWall" type="StaticBody2D" parent="."]
 position = Vector2(258.284, 27.7183)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+position = Vector2(195.503, 10.0794)
+shape = SubResource("RectangleShape2D_4q4oa")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(675.477, 50.3457)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(195.503, 10.0794)
+shape = SubResource("RectangleShape2D_4q4oa")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(249.799, 46.1031)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(195.503, 10.0794)
+shape = SubResource("RectangleShape2D_4q4oa")
+
+[node name="Bottomwall" type="StaticBody2D" parent="."]
+position = Vector2(254.041, 451.982)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottomwall"]
 position = Vector2(195.503, 10.0794)
 shape = SubResource("RectangleShape2D_4q4oa")
 
