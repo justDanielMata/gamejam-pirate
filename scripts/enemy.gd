@@ -5,11 +5,15 @@ class_name Enemy extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 @onready var intent_ui: IntentUI = $IntentUI as IntentUI
+@onready var tile_map: Tiles = $"../../TileMap" as Tiles
 
 var enemy_action_picker: EnemyActionPicker
 var matrixPosition: Vector2
 var current_action: EnemyAction : set = set_current_action
+var moving
 
+func _ready():
+	Events.enemy_moved.emit(self)
 
 func set_current_action(value: EnemyAction) -> void:
 	current_action = value
@@ -61,6 +65,18 @@ func update_enemy() -> void:
 	update_stats()
 
 func do_turn() -> void:
+	#check if enemy needs to move
+	#if enemy needs to move do this
+	var path_to_player = tile_map.get_path_to_player(self)
+	for point in range(0, 2):
+		var tween = create_tween()
+		tween.tween_property(self, "global_position",
+			path_to_player[point], 1.0/8).set_trans(Tween.TRANS_SINE)
+		moving = true
+		await tween.finished
+		Events.enemy_moved.emit(self)
+		moving = false
+	#if not need to move then:
 	update_action()
 	if not current_action:
 		return
