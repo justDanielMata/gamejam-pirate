@@ -52,6 +52,9 @@ func take_damage(damage: int) -> void:
 		Events.player_died.emit()
 		queue_free()
 
+func set_vulnerable() -> void:
+	stats.vulnerable = true
+
 func _ready():
 	Events.enemy_moved.connect(_get_enemies_range)
 
@@ -99,4 +102,5 @@ func _get_enemies_range(_enemy = Node):
 			en.add_to_group("enemies_in_range")
 		if path_to_enemy.size() < 4:
 			en.add_to_group("enemies_in_range")
-			
+	print(get_tree().get_nodes_in_group("enemies_in_range"))
+	print(get_tree().get_nodes_in_group("enemies_in_melee_range"))

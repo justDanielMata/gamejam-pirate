@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b3qjrapeqf7k4"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b3qjrapeqf7k4"]
 
-[ext_resource type="Script" path="res://custom_resources/card.gd" id="1_mdkcj"]
 [ext_resource type="Texture2D" uid="uid://bnna6regy7clw" path="res://Alchemical_earth_symbol_(fixed_width).svg" id="1_sap3t"]
+[ext_resource type="Script" path="res://characters/alchemist/cards/earth.gd" id="2_wrfmv"]
 
 [resource]
-script = ExtResource("1_mdkcj")
+script = ExtResource("2_wrfmv")
 id = "earth"
 type = 0
-target = 2
+target = 3
 mana_cost = 0
 icon = ExtResource("1_sap3t")
 tooltip_text = ""

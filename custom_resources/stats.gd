@@ -5,6 +5,7 @@ signal stats_changed
 @export var max_health := 1
 @export var art: Texture
 @export var moves_per_turn: int : set = set_moves_per_turn
+@export var vulnerable := false
 
 var health: int : set = set_health
 var block: int : set = set_block
@@ -23,6 +24,8 @@ func set_block(value: int) -> void:
 	stats_changed.emit()
 	
 func take_damage(damage: int) -> void:
+	if vulnerable:
+		damage += 2
 	if damage <= 0:
 		return
 	var initial_damage = damage

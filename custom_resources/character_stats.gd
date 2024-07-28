@@ -16,6 +16,9 @@ func set_mana(value: int) -> void:
 
 func reset_moves() -> void:
 	self.moves_per_turn = max_moves
+	
+func reset_vulnerable() -> void:
+	self.vulnerable = false
 
 func reset_mana() -> void:
 	self.mana = max_mana

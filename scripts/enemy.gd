@@ -67,6 +67,8 @@ func update_enemy() -> void:
 	update_stats()
 
 func do_turn() -> void:
+	if stats.vulnerable:
+		stats.vulnerable = false
 	var player = get_tree().get_nodes_in_group("player")[0]
 	needs_to_wait = false
 	var path_to_player = tile_map.get_path_to_target(self, player)
@@ -75,6 +77,7 @@ func do_turn() -> void:
 		for point in path_to_player:
 			if stats.moves_per_turn <= 0:
 				break
+			tile_map.remove_solid(self.global_position)
 			var tween = create_tween()
 			tween.tween_property(self, "global_position",
 				point, 1.0/8).set_trans(Tween.TRANS_SINE)
@@ -86,7 +89,7 @@ func do_turn() -> void:
 	# get new path
 	path_to_player = tile_map.get_path_to_target(self, player)
 	# player is still out of range so we wait
-	if path_to_player.size() > stats.range:
+	if path_to_player.size() > stats.range or path_to_player.is_empty():
 		Events.enemy_action_completed.emit(self)
 	else:
 		update_action()
@@ -104,3 +107,6 @@ func take_damage(damage: int) -> void:
 	
 	if stats.health <= 0:
 		queue_free()
+
+func set_vulnerable() -> void:
+	stats.vulnerable = true

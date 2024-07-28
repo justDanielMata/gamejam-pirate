@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b5j7rdrw7b7tk"]
+
+[ext_resource type="Script" path="res://characters/alchemist/cards/ice.gd" id="1_gk20d"]
+
+[resource]
+script = ExtResource("1_gk20d")
+id = "ice"
+type = null
+target = 2
+mana_cost = 1
+tooltip_text = null
