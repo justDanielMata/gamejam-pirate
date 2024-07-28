@@ -25,36 +25,26 @@ texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-75, -50, 75, -50, 75, 50, -75, 50)
 
 [sub_resource type="TileSet" id="TileSet_cnq2t"]
-tile_size = Vector2i(100, 100)
+tile_size = Vector2i(150, 100)
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 25
 sources/3 = SubResource("TileSetAtlasSource_vfi62")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0smi"]
-size = Vector2(1152, 432)
+size = Vector2(1152, 440.497)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msict"]
 size = Vector2(178, 161)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q4oa"]
-size = Vector2(400.927, 20)
+size = Vector2(607.946, 20)
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_c0q2n")
 char_stats = ExtResource("5_ng3uk")
-
-[node name="TileMap" type="TileMap" parent="."]
-position = Vector2(251.071, 50.0253)
-tile_set = SubResource("TileSet_cnq2t")
-format = 2
-layer_0/tile_data = PackedInt32Array(0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 65539, 3, 0, 131075, 3, 0, 196611, 3, 0, 196610, 3, 0, 196609, 3, 0, 196608, 3, 0, 131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 65538, 3, 0, 65537, 3, 0, 65536, 3, 0)
-script = ExtResource("4_kfdpm")
-
-[node name="Line2D" type="Line2D" parent="TileMap"]
-position = Vector2(255.217, 53.2123)
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 40.0
@@ -66,17 +56,26 @@ metadata/_edit_lock_ = true
 [node name="BattleField" type="Node2D" parent="."]
 position = Vector2(300, 100)
 
-[node name="CardDropArea" type="Area2D" parent="."]
+[node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
+position = Vector2(225.709, 52.331)
+tile_set = SubResource("TileSet_cnq2t")
+format = 2
+layer_0/modulate = Color(1, 1, 1, 0)
+layer_0/tile_data = PackedInt32Array(0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 65539, 3, 0, 131075, 3, 0, 196611, 3, 0, 196610, 3, 0, 196609, 3, 0, 196608, 3, 0, 131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 65538, 3, 0, 65537, 3, 0, 65536, 3, 0)
+script = ExtResource("4_kfdpm")
+
+[node name="CardDropArea" type="Area2D" parent="." groups=["card_drop_area"]]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(576, 216)
+position = Vector2(570, 253.3)
 shape = SubResource("RectangleShape2D_s0smi")
 debug_color = Color(0, 0.6, 0.701961, 0.133333)
 
 [node name="Player" parent="." instance=ExtResource("8_2m8xi")]
 process_mode = 3
-position = Vector2(598, 402)
+position = Vector2(452.667, 174.292)
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("4_otoe6")]
 
@@ -84,11 +83,11 @@ position = Vector2(598, 402)
 script = ExtResource("6_37qis")
 
 [node name="Melee" parent="EnemyHandler" instance=ExtResource("7_tws2o")]
-position = Vector2(298, 100)
+position = Vector2(301.335, 55.3066)
 stats = ExtResource("8_ym10o")
 
 [node name="ranged" parent="EnemyHandler" instance=ExtResource("7_tws2o")]
-position = Vector2(402.414, 102.01)
+position = Vector2(449.49, 62.6245)
 stats = ExtResource("9_laixy")
 
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
@@ -163,7 +162,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(258.284, 27.7183)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
-position = Vector2(195.503, 10.0794)
+position = Vector2(267.092, -39.3089)
 shape = SubResource("RectangleShape2D_4q4oa")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
@@ -171,7 +170,7 @@ position = Vector2(675.477, 50.3457)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(195.503, 10.0794)
+position = Vector2(195.502, -163.673)
 shape = SubResource("RectangleShape2D_4q4oa")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
@@ -179,14 +178,14 @@ position = Vector2(249.799, 46.1031)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(195.503, 10.0794)
+position = Vector2(195.503, 34.447)
 shape = SubResource("RectangleShape2D_4q4oa")
 
 [node name="Bottomwall" type="StaticBody2D" parent="."]
 position = Vector2(254.041, 451.982)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottomwall"]
-position = Vector2(195.503, 10.0794)
+position = Vector2(273.903, 14.3173)
 shape = SubResource("RectangleShape2D_4q4oa")
 
 [connection signal="child_order_changed" from="EnemyHandler" to="." method="_on_enemy_handler_child_order_changed"]

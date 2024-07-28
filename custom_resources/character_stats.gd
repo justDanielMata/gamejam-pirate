@@ -6,14 +6,9 @@ class_name CharacterStats extends Stats
 @export var max_moves: int
 
 var mana: int : set = set_mana
-var moves_per_turn: int: set = set_moves_per_turn
 var deck: CardPile
 var discard: CardPile
 var draw_pile: CardPile
-
-func set_moves_per_turn(value: int) -> void:
-	moves_per_turn = value
-	stats_changed.emit()
 	
 func set_mana(value: int) -> void:
 	mana = value

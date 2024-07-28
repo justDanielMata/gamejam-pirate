@@ -2,7 +2,7 @@ class_name Player extends Area2D
 
 @export var stats:  CharacterStats : set = set_character_stats
 
-var tile_size = 100
+var tile_size = Vector2(150,100)
 var inputs = {"right": Vector2.RIGHT,
 			"left": Vector2.LEFT,
 			"up": Vector2.UP,
@@ -13,6 +13,7 @@ var moving = false
 var invulnerable = false
 var matrixPosition: Vector2
 
+@onready var tile_map: Tiles = %TileMap as Tiles
 @onready var ray = $RayCast2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
@@ -50,7 +51,9 @@ func take_damage(damage: int) -> void:
 	if stats.health <= 0:
 		Events.player_died.emit()
 		queue_free()
-	
+
+func _ready():
+	Events.enemy_moved.connect(_get_enemies_range)
 
 func _process(delta):
 	pass
@@ -79,3 +82,21 @@ func move(dir):
 		await tween.finished
 		moving = false
 		Events.player_moved.emit()
+		_get_enemies_range()
+
+func _get_enemies_range(_enemy = Node):
+	var path_to_enemy
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	#clear groups
+	for e in get_tree().get_nodes_in_group("enemies_in_melee_range"):
+		e.remove_from_group("enemies_in_melee_range")
+	for e in get_tree().get_nodes_in_group("enemies_in_range"):
+		e.remove_from_group("enemies_in_range")
+	for en in enemies:
+		path_to_enemy = tile_map.get_path_to_target(self, en)
+		if path_to_enemy.size() < 1:
+			en.add_to_group("enemies_in_melee_range")
+			en.add_to_group("enemies_in_range")
+		if path_to_enemy.size() < 4:
+			en.add_to_group("enemies_in_range")
+			

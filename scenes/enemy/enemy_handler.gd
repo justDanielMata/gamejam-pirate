@@ -11,9 +11,12 @@ func reset_enemy_actions() -> void:
 		enemy.update_action()
 
 func start_turn() -> void:
+	var enemy: Enemy
 	if get_child_count() == 0:
 		return
-	
+	for child in get_children():
+		enemy = child as Enemy
+		enemy.stats.reset_moves()
 	var first_enemy: Enemy = get_child(0) as Enemy
 	first_enemy.do_turn()
 	

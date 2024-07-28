@@ -79,10 +79,10 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	card_state_machine.on_mouse_exited()
 
-
 func _on_drop_point_detector_area_entered(area):
 	if not targets.has(area):
 		targets.append(area)
+	
 
 func animate_to_position(new_position: Vector2, duration: float) -> void:
 	tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)

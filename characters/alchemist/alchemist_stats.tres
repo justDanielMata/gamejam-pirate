@@ -10,5 +10,6 @@ starting_deck = ExtResource("3_lo3w0")
 cards_per_turn = 3
 max_mana = 1
 max_moves = 2
-max_health = 10
+max_health = 20
 art = ExtResource("1_5mqpi")
+moves_per_turn = 0

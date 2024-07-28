@@ -4,13 +4,14 @@ signal stats_changed
 
 @export var max_health := 1
 @export var art: Texture
+@export var moves_per_turn: int : set = set_moves_per_turn
 
 var health: int : set = set_health
 var block: int : set = set_block
-var moves: int : set = set_move
 
-func set_move(value: int) -> void:
-	moves = clampi(value, 0, 2)
+
+func set_moves_per_turn(value: int) -> void:
+	moves_per_turn = value
 	stats_changed.emit()
 
 func set_health(value: int) -> void:

@@ -5,12 +5,14 @@ class_name Enemy extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 @onready var intent_ui: IntentUI = $IntentUI as IntentUI
-@onready var tile_map: Tiles = $"../../TileMap" as Tiles
+@onready var tile_map: Tiles = %TileMap as Tiles
 
+var needs_to_wait := false
 var enemy_action_picker: EnemyActionPicker
 var matrixPosition: Vector2
 var current_action: EnemyAction : set = set_current_action
 var moving
+var prepped_action: EnemyAction
 
 func _ready():
 	Events.enemy_moved.emit(self)
@@ -65,23 +67,34 @@ func update_enemy() -> void:
 	update_stats()
 
 func do_turn() -> void:
-	#check if enemy needs to move
-	#if enemy needs to move do this
-	var path_to_player = tile_map.get_path_to_player(self)
-	for point in range(0, 2):
-		var tween = create_tween()
-		tween.tween_property(self, "global_position",
-			path_to_player[point], 1.0/8).set_trans(Tween.TRANS_SINE)
-		moving = true
-		await tween.finished
-		Events.enemy_moved.emit(self)
-		moving = false
-	#if not need to move then:
-	update_action()
-	if not current_action:
-		return
-	
-	current_action.perform_action()
+	var player = get_tree().get_nodes_in_group("player")[0]
+	needs_to_wait = false
+	var path_to_player = tile_map.get_path_to_target(self, player)
+	# check if enemy needs to move
+	if path_to_player.size() > stats.range:
+		for point in path_to_player:
+			if stats.moves_per_turn <= 0:
+				break
+			var tween = create_tween()
+			tween.tween_property(self, "global_position",
+				point, 1.0/8).set_trans(Tween.TRANS_SINE)
+			moving = true
+			await tween.finished
+			Events.enemy_moved.emit(self)
+			moving = false
+			stats.moves_per_turn -= 1
+	# get new path
+	path_to_player = tile_map.get_path_to_target(self, player)
+	# player is still out of range so we wait
+	if path_to_player.size() > stats.range:
+		Events.enemy_action_completed.emit(self)
+	else:
+		update_action()
+		if not current_action:
+			return
+		
+		
+		current_action.perform_action()
 	
 func take_damage(damage: int) -> void:
 	if stats.health <= 0:
