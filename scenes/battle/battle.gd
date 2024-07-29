@@ -26,6 +26,7 @@ func _on_player_turn_ended() -> void:
 func _on_enemy_turn_ended() -> void:
 	player_handler.start_turn()
 	enemy_handler.reset_enemy_actions()
+	enemy_handler.clear_enemy_statuses()
 
 
 func _on_enemy_handler_child_order_changed() -> void:

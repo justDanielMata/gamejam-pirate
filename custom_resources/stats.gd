@@ -6,10 +6,17 @@ signal stats_changed
 @export var art: Texture
 @export var moves_per_turn: int : set = set_moves_per_turn
 @export var vulnerable := false
+@export var burning := false : set = set_burning
+@export var stunned := false : set = set_stunned
 
 var health: int : set = set_health
 var block: int : set = set_block
 
+func set_stunned(value: bool) -> void:
+	stunned = value
+
+func set_burning(value: bool) -> void:
+	burning = value
 
 func set_moves_per_turn(value: int) -> void:
 	moves_per_turn = value

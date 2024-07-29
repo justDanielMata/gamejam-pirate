@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://do684oqprgwtk"]
+
+[ext_resource type="Script" path="res://characters/alchemist/cards/magma.gd" id="1_6mnsq"]
+
+[resource]
+script = ExtResource("1_6mnsq")
+id = "magma"
+type = 0
+target = 2
+mana_cost = 1
+tooltip_text = ""

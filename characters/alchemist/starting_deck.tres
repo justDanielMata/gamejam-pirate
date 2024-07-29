@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://custom_resources/card_pile.gd" id="1_3a18a"]
 [ext_resource type="Resource" uid="uid://b4rs80cwqr3gl" path="res://characters/alchemist/cards/lighting.tres" id="2_ys2bx"]
-[ext_resource type="Resource" uid="uid://b5j7rdrw7b7tk" path="res://characters/alchemist/cards/ice.tres" id="3_t6763"]
-[ext_resource type="Resource" uid="uid://bfbs8p8ufgy8t" path="res://characters/alchemist/cards/water.tres" id="4_qoo8d"]
+[ext_resource type="Resource" uid="uid://tsbfvp85xv2i" path="res://characters/alchemist/cards/nature.tres" id="3_6jbav"]
+[ext_resource type="Resource" uid="uid://c63jxs26wh4em" path="res://characters/alchemist/cards/dust.tres" id="3_stc24"]
 
 [resource]
 script = ExtResource("1_3a18a")
-cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("4_qoo8d"), ExtResource("2_ys2bx"), ExtResource("3_t6763")])
+cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("2_ys2bx"), ExtResource("3_6jbav"), ExtResource("3_stc24")])

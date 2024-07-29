@@ -15,8 +15,8 @@ var matrixPosition: Vector2
 
 @onready var tile_map: Tiles = %TileMap as Tiles
 @onready var ray = $RayCast2D
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
+@onready var sprite_2d = $AnimatedSprite2D
 
 
 func set_character_stats(value: CharacterStats) -> void:
@@ -33,7 +33,6 @@ func update_player() -> void:
 	if not is_inside_tree():
 		await ready
 	
-	sprite_2d.texture = stats.art
 	update_stats()
 	
 func update_stats() -> void:

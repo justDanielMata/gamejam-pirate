@@ -6,3 +6,9 @@ class_name EnemyStats extends Stats
 
 func reset_moves() -> void:
 	self.moves_per_turn = max_moves
+
+func reset_burning() -> void:
+	self.burning = false
+
+func reset_stunned() -> void:
+	self.stunned = false

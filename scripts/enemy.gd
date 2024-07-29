@@ -7,7 +7,6 @@ class_name Enemy extends Area2D
 @onready var intent_ui: IntentUI = $IntentUI as IntentUI
 @onready var tile_map: Tiles = %TileMap as Tiles
 
-var needs_to_wait := false
 var enemy_action_picker: EnemyActionPicker
 var matrixPosition: Vector2
 var current_action: EnemyAction : set = set_current_action
@@ -70,22 +69,22 @@ func do_turn() -> void:
 	if stats.vulnerable:
 		stats.vulnerable = false
 	var player = get_tree().get_nodes_in_group("player")[0]
-	needs_to_wait = false
-	var path_to_player = tile_map.get_path_to_target(self, player)
 	# check if enemy needs to move
+	var path_to_player = tile_map.get_path_to_target(self, player)
 	if path_to_player.size() > stats.range:
-		for point in path_to_player:
-			if stats.moves_per_turn <= 0:
-				break
-			tile_map.remove_solid(self.global_position)
-			var tween = create_tween()
-			tween.tween_property(self, "global_position",
-				point, 1.0/8).set_trans(Tween.TRANS_SINE)
-			moving = true
-			await tween.finished
-			Events.enemy_moved.emit(self)
-			moving = false
-			stats.moves_per_turn -= 1
+		if not stats.stunned:
+			for point in path_to_player:
+				if stats.moves_per_turn <= 0:
+					break
+				tile_map.remove_solid(self.global_position)
+				var tween = create_tween()
+				tween.tween_property(self, "global_position",
+					point, 1.0/8).set_trans(Tween.TRANS_SINE)
+				moving = true
+				await tween.finished
+				Events.enemy_moved.emit(self)
+				moving = false
+				stats.moves_per_turn -= 1
 	# get new path
 	path_to_player = tile_map.get_path_to_target(self, player)
 	# player is still out of range so we wait
@@ -110,3 +109,9 @@ func take_damage(damage: int) -> void:
 
 func set_vulnerable() -> void:
 	stats.vulnerable = true
+
+func set_burning() -> void:
+	stats.burning = true
+
+func set_stunned(value: bool) -> void:
+	stats.stunned = value
