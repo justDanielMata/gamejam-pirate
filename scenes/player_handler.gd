@@ -18,6 +18,7 @@ func start_battle(char_stats: CharacterStats) -> void:
 func start_turn() -> void:
 	character.reset_mana()
 	character.reset_moves()
+	character.reset_block()
 	character.reset_vulnerable()
 	var cards_to_draw = character.cards_per_turn - hand.children()
 	if cards_to_draw == 0:

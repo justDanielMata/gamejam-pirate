@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6fg720pl04lg"
-path="res://.godot/imported/Alchemical_fire_symbol_(bold).svg-2a366c36521b1198a8a2fa4343235c65.ctex"
+uid="uid://ccw54v1dc7q47"
+path="res://.godot/imported/pngwing.com.png-84ac95d3c82df5c3f85812be8dcfd7c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Alchemical_fire_symbol_(bold).svg"
-dest_files=["res://.godot/imported/Alchemical_fire_symbol_(bold).svg-2a366c36521b1198a8a2fa4343235c65.ctex"]
+source_file="res://pngwing.com.png"
+dest_files=["res://.godot/imported/pngwing.com.png-84ac95d3c82df5c3f85812be8dcfd7c3.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

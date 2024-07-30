@@ -66,6 +66,8 @@ func apply_effects(_targets: Array[Node]) -> void:
 	pass
 
 func get_fusion_result(card_to_fuse: Card) -> Card:
+	if not self.fusion_result.has(card_to_fuse.id):
+		return null
 	return self.fusion_result[card_to_fuse.id]
 
 func get_base_cards() -> Array[Card]:

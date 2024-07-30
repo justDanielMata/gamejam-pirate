@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbw2kh6mo5y03"
-path="res://.godot/imported/Alchemical_air_symbol_(fixed_width).svg-633c3007e693295f1c328a38e5385a8f.ctex"
+uid="uid://c1kfvk0kyk867"
+path="res://.godot/imported/water.png-af3cf2c8f777e56972540a1d34848554.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Alchemical_air_symbol_(fixed_width).svg"
-dest_files=["res://.godot/imported/Alchemical_air_symbol_(fixed_width).svg-633c3007e693295f1c328a38e5385a8f.ctex"]
+source_file="res://art/water.png"
+dest_files=["res://.godot/imported/water.png-af3cf2c8f777e56972540a1d34848554.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

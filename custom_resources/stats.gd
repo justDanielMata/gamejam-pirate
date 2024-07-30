@@ -29,7 +29,11 @@ func set_health(value: int) -> void:
 func set_block(value: int) -> void:
 	block = clampi(value, 0, 999)
 	stats_changed.emit()
-	
+
+func reset_block() -> void:
+	block = 0
+	stats_changed.emit()
+
 func take_damage(damage: int) -> void:
 	if vulnerable:
 		damage += 2

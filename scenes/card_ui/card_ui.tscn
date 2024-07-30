@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/card_ui/card_ui.gd" id="2_k2s3o"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_state_machine.gd" id="3_0dva1"]
 [ext_resource type="StyleBox" uid="uid://cgq5dgf4b552" path="res://scenes/card_ui/card_base_stylebox.tres" id="3_hifh1"]
-[ext_resource type="Texture2D" uid="uid://bbw2kh6mo5y03" path="res://Alchemical_air_symbol_(fixed_width).svg" id="4_ebwyp"]
+[ext_resource type="Texture2D" uid="uid://bfeha1s48vqd2" path="res://art/air.png" id="4_atybr"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_hpqo2"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/card_clicked_state.gd" id="5_fpaqk"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/card_dragging_state.gd" id="6_vwyd5"]
@@ -76,8 +76,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.00565, 1)
 mouse_filter = 2
-texture = ExtResource("4_ebwyp")
+texture = ExtResource("4_atybr")
 expand_mode = 1
 stretch_mode = 5
 

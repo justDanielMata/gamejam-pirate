@@ -93,3 +93,7 @@ func _on_drop_point_detector_area_exited(area):
 
 func target_is_fusion_area() -> bool:
 	return targets.has(get_tree().get_first_node_in_group("ui_layer_group").get_node("%FusionArea"))
+
+func cancel_fusion() -> void:
+	card_state_machine.current_state.transition_requested.emit(card_state_machine.current_state, CardState.State.BASE)
+	Events.reparent_requested.emit(self, "hand")

@@ -8,4 +8,4 @@ func enter() -> void:
 func on_input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_mouse"):
 		transition_requested.emit(self, CardState.State.BASE)
-		Events.reparent_requested.emit(card_ui, "hadn")
+		Events.reparent_requested.emit(card_ui, "hand")
