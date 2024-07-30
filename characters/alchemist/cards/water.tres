@@ -1,7 +1,10 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bfbs8p8ufgy8t"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bfbs8p8ufgy8t"]
 
 [ext_resource type="Texture2D" uid="uid://om1mmolqgoh3" path="res://art/Alchemical_water_symbol_(bold).svg" id="1_584ti"]
+[ext_resource type="Resource" uid="uid://b5j7rdrw7b7tk" path="res://characters/alchemist/cards/ice.tres" id="1_fjnvg"]
 [ext_resource type="Script" path="res://characters/alchemist/cards/water.gd" id="2_l5tce"]
+[ext_resource type="Resource" uid="uid://4kb5h3v0y7ty" path="res://characters/alchemist/cards/steam.tres" id="2_xtlw2"]
+[ext_resource type="Resource" uid="uid://tsbfvp85xv2i" path="res://characters/alchemist/cards/nature.tres" id="3_mdew1"]
 
 [resource]
 script = ExtResource("2_l5tce")
@@ -10,7 +13,11 @@ type = 1
 target = 0
 mana_cost = 0
 kind = 0
-fusion_result = {}
+fusion_result = {
+"air": ExtResource("1_fjnvg"),
+"earth": ExtResource("3_mdew1"),
+"fire": ExtResource("2_xtlw2")
+}
 base_cards = Array[Resource("res://custom_resources/card.gd")]([])
 icon = ExtResource("1_584ti")
 tooltip_text = ""

@@ -18,5 +18,6 @@ fusion_result = {
 "fire": ExtResource("1_qtioj"),
 "water": ExtResource("2_7cehu")
 }
+base_cards = Array[Resource("res://custom_resources/card.gd")]([])
 icon = ExtResource("1_13t16")
 tooltip_text = ""
