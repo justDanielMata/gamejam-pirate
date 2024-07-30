@@ -7,7 +7,8 @@ func enter() -> void:
 	if card_ui.tween and card_ui.tween.is_running():
 		card_ui.tween.kill()
 
-	card_ui.reparent_requested.emit(card_ui)
+	
+	Events.reparent_requested.emit(card_ui, "hand")
 	card_ui.pivot_offset = Vector2.ZERO
 	
 func on_gui_input(event: InputEvent) -> void:

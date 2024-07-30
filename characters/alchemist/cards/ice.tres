@@ -5,7 +5,9 @@
 [resource]
 script = ExtResource("1_gk20d")
 id = "ice"
-type = null
+type = 0
 target = 2
 mana_cost = 1
-tooltip_text = null
+kind = 1
+fusion_result = {}
+tooltip_text = ""

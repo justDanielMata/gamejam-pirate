@@ -6,8 +6,11 @@ func enter() -> void:
 	played = false
 	
 	if not card_ui.targets.is_empty():
-		played = true
-		card_ui.play()
+		if card_ui.target_is_fusion_area():
+			transition_requested.emit(self, CardState.State.FUSING)
+		else:
+			played = true
+			card_ui.play()
 		
 
 func on_input(_event: InputEvent) -> void:

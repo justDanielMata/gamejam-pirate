@@ -7,6 +7,8 @@ signal card_dragging_started(card_ui: CardUI)
 signal card_dragging_ended(card_ui: CardUI)
 signal card_played(card: Card)
 signal card_canceled(card: Card)
+signal reparent_requested(which_card_ui: CardUI, new_parent: String)
+signal add_fused_card_to_hand(card: Card)
 
 #player evetns
 signal player_hand_drawn

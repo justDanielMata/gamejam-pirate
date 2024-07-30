@@ -1,7 +1,5 @@
 class_name CardUI extends Control
 
-signal reparent_requested(which_card_ui: CardUI)
-
 @onready var panel: Panel = $Panel
 @onready var cost: Label = $cost
 @onready var icon: TextureRect = $TextureRect
@@ -11,6 +9,7 @@ signal reparent_requested(which_card_ui: CardUI)
 @onready var targets: Array[Node] = []
 @export var card: Card : set = _set_card
 @export var char_stats: CharacterStats  : set = _set_char_stats
+
 
 var original_index := 0
 var parent: Control
@@ -40,6 +39,7 @@ func _ready() -> void:
 	Events.card_dragging_ended.connect(_on_card_drag_or_aiming_ended)
 	Events.card_dragging_started.connect(_on_card_drag_or_aiming_started)
 	card_state_machine.init(self)
+	self.add_to_group('cards')
 	
 func _set_playable(value: bool) -> void:
 	playable = value
@@ -90,3 +90,6 @@ func animate_to_position(new_position: Vector2, duration: float) -> void:
 
 func _on_drop_point_detector_area_exited(area):
 	targets.erase(area)
+
+func target_is_fusion_area() -> bool:
+	return targets.has(get_tree().get_first_node_in_group("ui_layer_group").get_node("%FusionArea"))

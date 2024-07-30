@@ -101,5 +101,3 @@ func _get_enemies_range(_enemy = Node):
 			en.add_to_group("enemies_in_range")
 		if path_to_enemy.size() < 4:
 			en.add_to_group("enemies_in_range")
-	print(get_tree().get_nodes_in_group("enemies_in_range"))
-	print(get_tree().get_nodes_in_group("enemies_in_melee_range"))

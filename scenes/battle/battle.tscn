@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b60yo8v1r8o6o"]
+[gd_scene load_steps=24 format=3 uid="uid://b60yo8v1r8o6o"]
 
 [ext_resource type="Script" path="res://scenes/battle/ui/hand.gd" id="1_bcmaq"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_c0q2n"]
@@ -17,8 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://bma656kcvit1" path="res://scenes/card_ui/mana_ui.tscn" id="10_2uk4u"]
 [ext_resource type="Theme" uid="uid://1k82t3bn6n0n" path="res://main.tres" id="10_y1sqd"]
 [ext_resource type="Script" path="res://scenes/battle/position_handler.gd" id="12_i4a5n"]
-[ext_resource type="StyleBox" uid="uid://cgq5dgf4b552" path="res://scenes/card_ui/card_base_stylebox.tres" id="13_bcedh"]
 [ext_resource type="PackedScene" uid="uid://cnt6c1pvmogtg" path="res://scenes/battle/ui/moves_ui.tscn" id="17_1lehw"]
+[ext_resource type="PackedScene" uid="uid://dl3nnq3y45ni2" path="res://scenes/fusion_area.tscn" id="19_tv8eg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vfi62"]
 texture = ExtResource("3_05hto")
@@ -37,9 +37,6 @@ sources/3 = SubResource("TileSetAtlasSource_vfi62")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0smi"]
 size = Vector2(1152, 440.497)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_msict"]
-size = Vector2(178, 161)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q4oa"]
 size = Vector2(607.946, 20)
 
@@ -48,6 +45,7 @@ script = ExtResource("1_c0q2n")
 char_stats = ExtResource("5_ng3uk")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(28.775, 16.175)
@@ -101,6 +99,9 @@ script = ExtResource("12_i4a5n")
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer_group"]]
 script = ExtResource("4_5bdha")
 
+[node name="FusionArea" parent="BattleUI" instance=ExtResource("19_tv8eg")]
+unique_name_in_owner = true
+
 [node name="ManaUI" parent="BattleUI" instance=ExtResource("10_2uk4u")]
 offset_left = 30.0
 offset_top = -93.0
@@ -141,23 +142,6 @@ offset_left = 81.8949
 offset_top = 553.105
 offset_right = 121.895
 offset_bottom = 593.105
-
-[node name="FusionArea" type="Area2D" parent="."]
-position = Vector2(1006, 540)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FusionArea"]
-position = Vector2(-19, 8.5)
-shape = SubResource("RectangleShape2D_msict")
-
-[node name="Panel" type="Panel" parent="FusionArea"]
-offset_left = -110.0
-offset_top = -74.0
-offset_right = -10.0
-offset_bottom = 26.0
-scale = Vector2(1.81539, 1.63152)
-theme_override_styles/panel = ExtResource("13_bcedh")
-metadata/_edit_use_anchors_ = true
 
 [node name="TopWall" type="StaticBody2D" parent="."]
 position = Vector2(258.284, 27.7183)

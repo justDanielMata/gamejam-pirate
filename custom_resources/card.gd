@@ -1,6 +1,7 @@
 class_name Card extends Resource
 
 enum Type {ATTACK, DEFEND}
+enum Kind {BASE, FUSED}
 enum Target {SELF, MELEE_ENEMY, RANGED_ENEMY, EMPTY_TILE, ALL_ENEMIES}
 
 @export_group("Card Attributes")
@@ -8,10 +9,16 @@ enum Target {SELF, MELEE_ENEMY, RANGED_ENEMY, EMPTY_TILE, ALL_ENEMIES}
 @export var type: Type
 @export var target: Target
 @export var mana_cost: int
+@export var kind: Kind
+@export var fusion_result:= {}
+@export var base_cards: Array[Card]
 
 @export_group("Card Visuals")
 @export var icon: Texture
 @export_multiline var tooltip_text: String 
+
+func is_card_basic() -> bool:
+	return kind == Kind.BASE
 
 func is_targeted() -> bool:
 	return target == Target.MELEE_ENEMY or target == Target.RANGED_ENEMY or target == Target.EMPTY_TILE
@@ -56,3 +63,9 @@ func play(targets: Array[Node], char_stats: CharacterStats) -> void:
 
 func apply_effects(_targets: Array[Node]) -> void:
 	pass
+
+func get_fusion_result(card_to_fuse: Card) -> Card:
+	return self.fusion_result[card_to_fuse.id]
+
+func get_base_cards() -> Array[Card]:
+	return self.base_cards

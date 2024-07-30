@@ -8,4 +8,7 @@ id = "dust"
 type = 0
 target = 3
 mana_cost = 1
+kind = 1
+fusion_result = {}
+base_cards = Array[Resource("res://custom_resources/card.gd")]([])
 tooltip_text = ""

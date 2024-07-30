@@ -5,7 +5,10 @@
 [resource]
 script = ExtResource("1_x6fse")
 id = "lighting"
-type = 0
+type = null
 target = 4
 mana_cost = 1
-tooltip_text = ""
+kind = 1
+fusion_result = null
+base_cards = Array[Resource("res://custom_resources/card.gd")]([])
+tooltip_text = null

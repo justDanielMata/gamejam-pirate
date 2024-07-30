@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl3nnq3y45ni2"]
+
+[ext_resource type="StyleBox" uid="uid://cgq5dgf4b552" path="res://scenes/card_ui/card_base_stylebox.tres" id="1_fkuu1"]
+[ext_resource type="Script" path="res://scenes/fusion_area.gd" id="1_qt3qj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msict"]
+size = Vector2(178, 161)
+
+[node name="FusionArea" type="Area2D"]
+position = Vector2(1006, 540)
+collision_layer = 2
+script = ExtResource("1_qt3qj")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -110.0
+offset_top = -74.0
+offset_right = -10.0
+offset_bottom = 26.0
+scale = Vector2(1.81539, 1.63152)
+theme_override_styles/panel = ExtResource("1_fkuu1")
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-19, 8.5)
+shape = SubResource("RectangleShape2D_msict")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

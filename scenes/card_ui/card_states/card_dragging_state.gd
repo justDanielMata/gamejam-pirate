@@ -19,7 +19,11 @@ func on_input(event: InputEvent) -> void:
 	var cancel = event.is_action_pressed("right_mouse")
 	var confirm = event.is_action_released("left_mouse") or event.is_action_pressed("left_mouse")
 	
-	if is_targeted and mouse_motion and card_ui.targets.size() > 0:
+	if card_ui.targets.size() > 0 and card_ui.target_is_fusion_area() and confirm:
+		transition_requested.emit(self, CardState.State.FUSING)
+		return
+
+	if is_targeted and mouse_motion and card_ui.targets.size() > 0 and not card_ui.target_is_fusion_area():
 		transition_requested.emit(self, CardState.State.AIMING)
 		return
 

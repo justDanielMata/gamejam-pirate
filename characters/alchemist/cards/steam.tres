@@ -8,4 +8,7 @@ id = "steam"
 type = 1
 target = 0
 mana_cost = 0
+kind = 1
+fusion_result = {}
+base_cards = Array[Resource("res://custom_resources/card.gd")]([])
 tooltip_text = "Denies the next damage instance"

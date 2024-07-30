@@ -29,11 +29,11 @@ func _draw_grid():
 	for x in tilemap_size.x + 1:
 		draw_line(Vector2(x * drawn_tile_size.x, 0),
 			Vector2(x * drawn_tile_size.x, tilemap_size.y * drawn_tile_size.y),
-			Color.RED, 2.0)
+			Color.AQUA, 2.0)
 	for y in tilemap_size.y + 1:
 		draw_line(Vector2(0, y * drawn_tile_size.y),
 			Vector2(tilemap_size.x * drawn_tile_size.x, y * drawn_tile_size.y),
-			Color.RED, 2.0)
+			Color.AQUA, 2.0)
 func _ready() -> void:
 	initialize_grid()	
 	Events.player_moved.connect(_on_player_moved)
