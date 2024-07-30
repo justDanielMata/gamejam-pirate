@@ -55,3 +55,7 @@ func reshuffle_deck_from_discard() -> void:
 func _on_card_played(card: Card) -> void:
 	if card.is_card_basic():
 		character.discard.add_card(card)
+	else:
+		for base_card in card.base_cards:
+			character.discard.add_card(base_card)
+			

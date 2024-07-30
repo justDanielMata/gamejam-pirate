@@ -11,11 +11,12 @@ enum Target {SELF, MELEE_ENEMY, RANGED_ENEMY, EMPTY_TILE, ALL_ENEMIES}
 @export var mana_cost: int
 @export var kind: Kind
 @export var fusion_result:= {}
-@export var base_cards: Array[Card]
 
 @export_group("Card Visuals")
 @export var icon: Texture
 @export_multiline var tooltip_text: String 
+
+var base_cards := []
 
 func is_card_basic() -> bool:
 	return kind == Kind.BASE

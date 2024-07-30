@@ -1,10 +1,10 @@
 [gd_resource type="Resource" load_steps=6 format=3 uid="uid://cc8ykqf6yrrpb"]
 
 [ext_resource type="Texture2D" uid="uid://bbw2kh6mo5y03" path="res://Alchemical_air_symbol_(fixed_width).svg" id="1_13t16"]
+[ext_resource type="Resource" uid="uid://c63jxs26wh4em" path="res://characters/alchemist/cards/dust.tres" id="1_f0h6j"]
 [ext_resource type="Resource" uid="uid://b4rs80cwqr3gl" path="res://characters/alchemist/cards/lighting.tres" id="1_qtioj"]
 [ext_resource type="Resource" uid="uid://b5j7rdrw7b7tk" path="res://characters/alchemist/cards/ice.tres" id="2_7cehu"]
 [ext_resource type="Script" path="res://characters/alchemist/cards/air.gd" id="2_ych5u"]
-[ext_resource type="Resource" uid="uid://b3qjrapeqf7k4" path="res://characters/alchemist/cards/earth.tres" id="3_qv66s"]
 
 [resource]
 script = ExtResource("2_ych5u")
@@ -14,7 +14,7 @@ target = 2
 mana_cost = 0
 kind = 0
 fusion_result = {
-"earth": ExtResource("3_qv66s"),
+"earth": ExtResource("1_f0h6j"),
 "fire": ExtResource("1_qtioj"),
 "water": ExtResource("2_7cehu")
 }

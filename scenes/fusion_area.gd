@@ -23,8 +23,9 @@ func _on_child_exiting_tree(node):
 
 func fuse_cards() -> void:
 	var resulting_card = cards_to_fuse[0].card.get_fusion_result(cards_to_fuse[1].card)
-	Events.card_played.emit(cards_to_fuse[0].card)
-	Events.card_played.emit(cards_to_fuse[1].card)
+	resulting_card.base_cards += [cards_to_fuse[0].card, cards_to_fuse[1].card]
+	#Events.card_played.emit(cards_to_fuse[0].card)
+	#Events.card_played.emit(cards_to_fuse[1].card)
 	for card_ui in cards_to_fuse:
 		card_ui.queue_free()
 	Events.add_fused_card_to_hand.emit(resulting_card)
