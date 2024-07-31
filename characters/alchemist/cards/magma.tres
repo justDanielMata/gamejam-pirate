@@ -1,5 +1,6 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://do684oqprgwtk"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://do684oqprgwtk"]
 
+[ext_resource type="Texture2D" uid="uid://extj4ntw2am4" path="res://art/lava.png" id="1_06bhc"]
 [ext_resource type="Script" path="res://characters/alchemist/cards/magma.gd" id="1_6mnsq"]
 
 [resource]
@@ -10,5 +11,5 @@ target = 2
 mana_cost = 1
 kind = 1
 fusion_result = {}
-base_cards = Array[Resource("res://custom_resources/card.gd")]([])
+icon = ExtResource("1_06bhc")
 tooltip_text = ""

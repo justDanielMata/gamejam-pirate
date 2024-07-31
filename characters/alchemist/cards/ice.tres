@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b5j7rdrw7b7tk"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b5j7rdrw7b7tk"]
 
 [ext_resource type="Script" path="res://characters/alchemist/cards/ice.gd" id="1_gk20d"]
+[ext_resource type="Texture2D" uid="uid://cve6vn2v1eruc" path="res://art/Ice.png" id="1_p6rcf"]
 
 [resource]
 script = ExtResource("1_gk20d")
@@ -10,5 +11,5 @@ target = 2
 mana_cost = 1
 kind = 1
 fusion_result = {}
-base_cards = Array[Resource("res://custom_resources/card.gd")]([])
+icon = ExtResource("1_p6rcf")
 tooltip_text = ""

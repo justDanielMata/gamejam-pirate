@@ -28,7 +28,10 @@ func _set_card(value: Card) -> void:
 		await ready
 	
 	card = value
+	cost.visible = false
 	cost.text = str(card.mana_cost)
+	if card.mana_cost > 0:
+		cost.visible = true
 	icon.texture = card.icon
 	card_name.text = str(card.id)
 
@@ -40,6 +43,7 @@ func _ready() -> void:
 	Events.card_dragging_started.connect(_on_card_drag_or_aiming_started)
 	card_state_machine.init(self)
 	self.add_to_group('cards')
+
 	
 func _set_playable(value: bool) -> void:
 	playable = value

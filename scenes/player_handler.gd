@@ -7,6 +7,7 @@ var character: CharacterStats
 
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
+	Events.enemy_died.connect(_on_enemy_death)
 
 func start_battle(char_stats: CharacterStats) -> void:
 	character = char_stats
@@ -60,3 +61,7 @@ func _on_card_played(card: Card) -> void:
 		for base_card in card.base_cards:
 			character.discard.add_card(base_card)
 			
+
+func _on_enemy_death() -> void:
+	character.reset_mana()
+	draw_card()

@@ -56,8 +56,7 @@ func _get_targets(targets: Array[Node]) -> Array[Node]:
 
 func play(targets: Array[Node], char_stats: CharacterStats) -> void:
 	var selected = _get_targets(targets)
-	if selected.size() == 0:
-		Events.card_canceled.emit(self)
+	char_stats.mana -= mana_cost
 	Events.card_played.emit(self)
 	
 	apply_effects(selected)

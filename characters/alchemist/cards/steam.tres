@@ -1,5 +1,6 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://4kb5h3v0y7ty"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://4kb5h3v0y7ty"]
 
+[ext_resource type="Texture2D" uid="uid://igk2nkbsnblg" path="res://art/steam.png" id="1_kimij"]
 [ext_resource type="Script" path="res://characters/alchemist/cards/steam.gd" id="1_t7qne"]
 
 [resource]
@@ -7,8 +8,8 @@ script = ExtResource("1_t7qne")
 id = "steam"
 type = 1
 target = 0
-mana_cost = 0
+mana_cost = 1
 kind = 1
 fusion_result = {}
-base_cards = Array[Resource("res://custom_resources/card.gd")]([])
+icon = ExtResource("1_kimij")
 tooltip_text = "Denies the next damage instance"

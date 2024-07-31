@@ -106,6 +106,7 @@ func take_damage(damage: int) -> void:
 	
 	if stats.health <= 0:
 		queue_free()
+		Events.enemy_died.emit()
 
 func set_vulnerable() -> void:
 	stats.vulnerable = true

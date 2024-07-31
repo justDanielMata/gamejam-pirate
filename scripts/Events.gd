@@ -20,3 +20,4 @@ signal player_moved
 signal enemy_moved(enemy: Enemy)
 signal enemy_action_completed(enemy: Enemy)
 signal enemy_turn_ended
+signal enemy_died

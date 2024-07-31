@@ -1,5 +1,6 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b4rs80cwqr3gl"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b4rs80cwqr3gl"]
 
+[ext_resource type="Texture2D" uid="uid://b5xxaehho1872" path="res://art/lightning.png" id="1_tj2m1"]
 [ext_resource type="Script" path="res://characters/alchemist/cards/lighting.gd" id="1_x6fse"]
 
 [resource]
@@ -10,5 +11,5 @@ target = 4
 mana_cost = 1
 kind = 1
 fusion_result = {}
-base_cards = Array[Resource("res://custom_resources/card.gd")]([])
+icon = ExtResource("1_tj2m1")
 tooltip_text = ""
