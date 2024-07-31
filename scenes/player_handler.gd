@@ -35,6 +35,7 @@ func draw_card() -> void:
 	reshuffle_deck_from_discard()
 	hand.add_card(character.draw_pile.draw_card())
 	reshuffle_deck_from_discard()
+	Events.next_card_changed.emit(character.draw_pile.next_card())
 
 func draw_cards(amount: int) -> void:
 	var tween := create_tween()

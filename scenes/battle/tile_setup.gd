@@ -81,5 +81,10 @@ func set_point_solid(point: Vector2i) -> void:
 	
 func summon_rock(position: Vector2i) -> void:
 	var rock = ROCK_SPRITE.instantiate()
+	rock.solid_point = position
 	add_child(rock)
 	rock.global_position = to_global(map_to_local(position))
+
+func destroy_rock(rock) -> void:
+	astar_grid.set_point_solid(rock.solid_point, false)
+	rock.queue_free()

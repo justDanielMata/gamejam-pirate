@@ -6,6 +6,7 @@ class_name BattleUI extends CanvasLayer
 @onready var mana_ui: ManaUI = $ManaUI as ManaUI
 @onready var end_turn_button = %EndTurnButton
 @onready var moves_ui = $MovesUI
+@onready var next_card_container: NextCardContainer = $NextCardContainer as NextCardContainer
 
 func _ready() -> void:
 	Events.player_hand_drawn.connect(_on_player_hand_drawn)
@@ -16,6 +17,8 @@ func _set_char_stats(value: CharacterStats) -> void:
 	mana_ui.char_stats = char_stats
 	moves_ui.char_stats = char_stats
 	hand.char_stats = char_stats
+	next_card_container.char_stats = char_stats
+	
 
 func _on_player_hand_drawn() -> void:
 	end_turn_button.disabled = false

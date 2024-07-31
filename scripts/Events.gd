@@ -12,6 +12,7 @@ signal add_fused_card_to_hand(card: Card)
 
 #player evetns
 signal player_hand_drawn
+signal next_card_changed(card: Card)
 signal player_turn_ended
 signal player_died
 signal player_moved

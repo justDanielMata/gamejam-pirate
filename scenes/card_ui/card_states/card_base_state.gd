@@ -7,7 +7,6 @@ func enter() -> void:
 	if card_ui.tween and card_ui.tween.is_running():
 		card_ui.tween.kill()
 
-	
 	Events.reparent_requested.emit(card_ui, "hand")
 	card_ui.pivot_offset = Vector2.ZERO
 	

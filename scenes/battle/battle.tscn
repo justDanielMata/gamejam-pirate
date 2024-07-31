@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b60yo8v1r8o6o"]
+[gd_scene load_steps=25 format=3 uid="uid://b60yo8v1r8o6o"]
 
 [ext_resource type="Script" path="res://scenes/battle/ui/hand.gd" id="1_bcmaq"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_c0q2n"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scenes/battle/position_handler.gd" id="12_i4a5n"]
 [ext_resource type="PackedScene" uid="uid://cnt6c1pvmogtg" path="res://scenes/battle/ui/moves_ui.tscn" id="17_1lehw"]
 [ext_resource type="PackedScene" uid="uid://dl3nnq3y45ni2" path="res://scenes/fusion_area.tscn" id="19_tv8eg"]
+[ext_resource type="Script" path="res://scripts/next_card_container.gd" id="20_hkses"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vfi62"]
 texture = ExtResource("3_05hto")
@@ -142,6 +143,18 @@ offset_left = 81.8949
 offset_top = 553.105
 offset_right = 121.895
 offset_bottom = 593.105
+
+[node name="NextCardContainer" type="VBoxContainer" parent="BattleUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -272.797
+offset_right = 150.0
+offset_bottom = -122.797
+grow_vertical = 0
+alignment = 1
+script = ExtResource("20_hkses")
 
 [node name="TopWall" type="StaticBody2D" parent="."]
 position = Vector2(258.284, 27.7183)
