@@ -19,4 +19,5 @@ fusion_result = {
 "fire": ExtResource("2_xtlw2")
 }
 icon = ExtResource("4_txl2m")
-tooltip_text = ""
+tooltip_text = "[center]Gain 5 armor[/center]
+"

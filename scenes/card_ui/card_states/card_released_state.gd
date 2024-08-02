@@ -11,6 +11,7 @@ func enter() -> void:
 		else:
 			played = true
 			card_ui.play()
+		Events.tooltip_hide_requested.emit()
 		
 
 func on_input(_event: InputEvent) -> void:

@@ -9,6 +9,8 @@ signal card_played(card: Card)
 signal card_canceled(card: Card)
 signal reparent_requested(which_card_ui: CardUI, new_parent: String)
 signal add_fused_card_to_hand(card: Card)
+signal card_tooltip_requested(card: Card)
+signal tooltip_hide_requested()
 
 #player evetns
 signal player_hand_drawn

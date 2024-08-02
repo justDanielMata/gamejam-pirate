@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b60yo8v1r8o6o"]
+[gd_scene load_steps=26 format=3 uid="uid://b60yo8v1r8o6o"]
 
 [ext_resource type="Script" path="res://scenes/battle/ui/hand.gd" id="1_bcmaq"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_c0q2n"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cnt6c1pvmogtg" path="res://scenes/battle/ui/moves_ui.tscn" id="17_1lehw"]
 [ext_resource type="PackedScene" uid="uid://dl3nnq3y45ni2" path="res://scenes/fusion_area.tscn" id="19_tv8eg"]
 [ext_resource type="Script" path="res://scripts/next_card_container.gd" id="20_hkses"]
+[ext_resource type="PackedScene" uid="uid://chwjrwj1u3lf7" path="res://scenes/tooltip.tscn" id="21_3agry"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vfi62"]
 texture = ExtResource("3_05hto")
@@ -155,6 +156,10 @@ offset_bottom = -122.797
 grow_vertical = 0
 alignment = 1
 script = ExtResource("20_hkses")
+
+[node name="Tooltip" parent="BattleUI" instance=ExtResource("21_3agry")]
+offset_left = 48.1631
+offset_right = 548.163
 
 [node name="TopWall" type="StaticBody2D" parent="."]
 position = Vector2(258.284, 27.7183)

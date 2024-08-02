@@ -20,7 +20,9 @@ func _set_card(value: Card) -> void:
 	card_name.text = str(card.id)
 
 func _on_mouse_entered() -> void:
+	Events.card_tooltip_requested.emit(card.icon, card.tooltip_text)
 	pass
 
 func _on_mouse_exited() -> void:
+	Events.tooltip_hide_requested.emit()
 	pass

@@ -12,4 +12,4 @@ mana_cost = 1
 kind = 1
 fusion_result = {}
 icon = ExtResource("1_kimij")
-tooltip_text = "Denies the next damage instance"
+tooltip_text = "[center]Denies the next damage you would take[/center]"

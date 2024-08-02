@@ -30,3 +30,13 @@ func fuse_cards() -> void:
 	for card_ui in cards_to_fuse:
 		card_ui.queue_free()
 	Events.add_fused_card_to_hand.emit(resulting_card)
+
+func check_for_fusion_tooltip(card: Card) -> void:
+	Events.tooltip_hide_requested.emit()
+	if cards_to_fuse.size() > 0:
+		var resulting_card = cards_to_fuse[0].card.get_fusion_result(card)
+		Events.card_tooltip_requested.emit(resulting_card.icon, resulting_card.tooltip_text)
+#
+#func _on_area_entered(area):
+	#print(area)
+	#pass # Replace with function body.

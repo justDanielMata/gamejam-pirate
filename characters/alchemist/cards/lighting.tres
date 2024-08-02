@@ -12,4 +12,5 @@ mana_cost = 1
 kind = 1
 fusion_result = {}
 icon = ExtResource("1_tj2m1")
-tooltip_text = ""
+tooltip_text = "[center]Deal 2 damage to all enemies[/center]
+"

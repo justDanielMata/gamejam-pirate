@@ -12,4 +12,6 @@ mana_cost = 1
 kind = 1
 fusion_result = {}
 icon = ExtResource("1_06bhc")
-tooltip_text = ""
+tooltip_text = "[center]Deal 2 damage to an enemy and applies burning[/center]
+[center]burning: enemy takes 1 damage next turn[/center]
+[center]Range: 3[/center]"

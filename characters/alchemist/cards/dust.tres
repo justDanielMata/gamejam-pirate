@@ -12,4 +12,4 @@ mana_cost = 1
 kind = 1
 fusion_result = {}
 icon = ExtResource("1_j4ijk")
-tooltip_text = ""
+tooltip_text = "[center]Teleport yourself to another space[/center]"

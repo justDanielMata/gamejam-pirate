@@ -19,4 +19,5 @@ fusion_result = {
 "water": ExtResource("2_7cehu")
 }
 icon = ExtResource("4_0cqtc")
-tooltip_text = ""
+tooltip_text = "[center]Deal 2 damage to an enemy[/center]
+[center]Range: 3[/center]"

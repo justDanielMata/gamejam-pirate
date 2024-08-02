@@ -86,6 +86,10 @@ func _on_mouse_exited() -> void:
 func _on_drop_point_detector_area_entered(area):
 	if not targets.has(area):
 		targets.append(area)
+		var is_fusion_target = target_is_fusion_area()
+		if is_fusion_target:
+			var fusion_area = get_tree().get_first_node_in_group("ui_layer_group").get_node("%FusionArea")
+			fusion_area.check_for_fusion_tooltip(card)
 	
 
 func animate_to_position(new_position: Vector2, duration: float) -> void:

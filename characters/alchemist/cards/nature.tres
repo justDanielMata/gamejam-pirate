@@ -12,4 +12,6 @@ mana_cost = 1
 kind = 1
 fusion_result = {}
 icon = ExtResource("1_wyioi")
-tooltip_text = ""
+tooltip_text = "[center]Stuns one enemy[/center]
+[center]stun: Enemy can't move next turn[/center]
+[center]Range: 3[/center]"

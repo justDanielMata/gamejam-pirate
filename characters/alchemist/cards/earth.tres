@@ -19,4 +19,5 @@ fusion_result = {
 "water": ExtResource("2_ftej6")
 }
 icon = ExtResource("4_fmd33")
-tooltip_text = ""
+tooltip_text = "[center]Summon a rock on an empty space that dissapears at the start of your next turn[/center]
+"
