@@ -23,5 +23,3 @@ func perform_action():
 			Events.enemy_action_completed.emit(enemy)
 	)
 
-	Events.enemy_action_completed.emit(enemy)
-

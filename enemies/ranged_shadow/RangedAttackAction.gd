@@ -18,9 +18,9 @@ func perform_action():
 	
 	tween.tween_property(instanced_bullet, "global_position", end, 1)
 	tween.tween_callback(damage_effect.execute.bind(target_array))
-	tween.tween_callback(func(): instanced_bullet.queue_free())
 	tween.finished.connect(
 		func():
+			instanced_bullet.queue_free()
 			Events.enemy_action_completed.emit(enemy)
 	)
 

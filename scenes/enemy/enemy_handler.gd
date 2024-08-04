@@ -31,6 +31,7 @@ func _on_enemy_action_completed(enemy: Enemy) -> void:
 		return
 	
 	var next_enemy: Enemy = get_child(enemy.get_index() + 1) as Enemy
+	print("manda turno")
 	next_enemy.do_turn()
 	
 func clear_enemy_statuses() -> void:

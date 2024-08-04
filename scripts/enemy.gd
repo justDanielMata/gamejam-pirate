@@ -71,7 +71,7 @@ func do_turn() -> void:
 	var player = get_tree().get_nodes_in_group("player")[0]
 	# check if enemy needs to move
 	var path_to_player = tile_map.get_path_to_target(self, player)
-	if path_to_player.size() > stats.range:
+	if path_to_player.size() >= stats.range:
 		if not stats.stunned:
 			for point in path_to_player:
 				if stats.moves_per_turn <= 0:
@@ -88,7 +88,7 @@ func do_turn() -> void:
 	# get new path
 	path_to_player = tile_map.get_path_to_target(self, player)
 	# player is still out of range so we wait
-	if path_to_player.size() > stats.range or path_to_player.is_empty():
+	if path_to_player.size() >= stats.range:
 		Events.enemy_action_completed.emit(self)
 	else:
 		update_action()

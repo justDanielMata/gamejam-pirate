@@ -7,8 +7,11 @@
 [resource]
 script = ExtResource("1_37sh0")
 ai = ExtResource("1_t4jja")
-range = 2
+range = 3
 max_moves = 2
 max_health = 8
 art = ExtResource("1_n0m17")
 moves_per_turn = 2
+vulnerable = false
+burning = false
+stunned = false
